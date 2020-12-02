@@ -33,7 +33,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'jquery-rails'
 gem 'momentjs-rails', '>= 2.9'
 
-
+gem 'rename'
 gem 'devise'
 
 gem 'autoprefixer-rails'
@@ -41,7 +41,7 @@ gem 'mini_racer'
 gem 'uglifier'
 gem 'font-awesome-sass'
 gem 'simple_form'
-group :development, :test do 
+group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
