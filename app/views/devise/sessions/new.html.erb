@@ -1,16 +1,11 @@
 <section>
 <div class="wrapper">
   <div class="row">
-    <div class="col-md-6">
-
-    </div>
-    <div class="col-md-6">
-      <hr>
+    <div class="signin">
       <h2 class="text-justify">Account login</h2>
-      <span>Enter your credentials:</span>
-      <hr>
+      Enter your credentials
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-inputs">
+      <div class="loginform-inputs">
         <%= f.input :email,
                 placeholder: 'user@domain.com',
                 required: false,
@@ -34,4 +29,3 @@
   </div>
 </div>
 </section>
-
