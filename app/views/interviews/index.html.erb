@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-between pt-2 pb-2">
-  <h1>Your Interviews - <%= Interview.count %></h1>
+  <h1>Companies - <%= Interview.count %></h1>
   <span>
-    <%= link_to "Create New", new_interview_path, class: "btn btn-primary btn-lg" %>
+    <%= link_to "Add Company", new_interview_path, class: "btn btn-primary btn-lg" %>
   </span>
 </div>
 <div class="flex-container3">
@@ -12,7 +12,7 @@
       <% else %>
         <h6><%= interview.company %></h6>
       <% end %>
-     <%= link_to interview_videos_path(interview) do %>
+     <%= link_to interview_path(interview) do %>
     <div class="card-product-infos">
       <h2><%= interview.name %></h2>
       <p><%= interview.company %> : <strong><%= interview.days_remaining %> days</strong> left.</p>

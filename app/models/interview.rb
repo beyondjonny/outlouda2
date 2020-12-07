@@ -2,7 +2,7 @@ class Interview < ApplicationRecord
   belongs_to :user
   has_many :videos, dependent: :destroy
   has_many :questions, dependent: :destroy
-  validates :name, :company, presence: true
+  validates :company, :industry, presence: true
   has_one_attached :photo
 
   def days_remaining
