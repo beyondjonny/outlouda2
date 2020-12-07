@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'settings', to: 'pages#settings'
   post 'sendsms', to: 'videos#send_sms'
   resources :interviews, only: [:index, :new, :create, :show, :destroy] do
-    resources :questions, only: [:index, :new, :create]
+    resources :questions, only: [:index, :new, :create, :show]
     resources :videos, only: [:index, :new, :create, :show] do
       resources :reviews, only: [:new, :create]
     end

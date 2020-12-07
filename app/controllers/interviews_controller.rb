@@ -30,6 +30,6 @@ class InterviewsController < ApplicationController
 private
 
   def interview_params
-    params.require(:interview).permit(:open_date, :final_date, :name, :company, :photo)
+    params.require(:interview).permit(:company, :industry, :photo)
   end
 end
