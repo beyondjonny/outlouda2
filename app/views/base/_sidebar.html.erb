@@ -7,7 +7,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel ml-3 mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a class="d-block">Welcome Jonny</a>
+          <a class="d-block">Welcome</a>
         </div>
       </div>
 
@@ -28,15 +28,15 @@
                   <div><%= link_to('Companies', interviews_path) %></div>
                 </div>
               </li>
+              <li class="nav-item">
+              <div class="nav-link d-flex">
+                <div><i class="far fa-circle nav-icon"></i></div>
+                <div><%= link_to('Practice', practices_path) %></div>
+              </div>
+            </li>
           </li>
           <br><br><br>
           <br><br><br>
-          <li class="nav-item">
-            <div class="nav-link d-flex">
-               <div><i class="nav-icon fas fa-th"></i></div>
-               <div><%= link_to('Exit', destroy_user_session_path, method: :delete) %></div>
-            </div>
-          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
