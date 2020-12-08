@@ -28,6 +28,6 @@ class PracticesController < ApplicationController
 private
 
   def practice_params
-    params.require(:practice).permit(:company, :type)
+    params.require(:practice).permit(:company, :category)
   end
 end
