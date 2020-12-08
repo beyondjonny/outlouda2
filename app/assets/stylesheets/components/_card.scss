@@ -132,3 +132,59 @@
 }
 
 
+/*question-cards*/
+
+.question-card {
+    overflow: hidden;
+    height: 80px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+    text-decoration: none;
+    margin-bottom: 7px;
+    width: 600px;
+    border-radius: 10px;
+}
+
+.question-card:hover {
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11), 0 24px 46px var(--box-shadow-color);
+}
+
+.question-card img {
+    height: 100%;
+    width: 100px;
+    object-fit: center;
+}
+
+.question-card h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    color: black;
+}
+
+.question-card p {
+    font-size: 16px;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: black;
+}
+
+.question-card:hover p {
+    color: black(--text-color-hover);
+}
+
+.question-card .card-product-infos {
+    padding: 16px;
+}
+
+.question-card:active {
+    transform: scale(1) translateZ(0);
+    box-shadow: 0 15px 24px rgba(0, 0, 0, 0.11), 0 15px 24px var();
+}
