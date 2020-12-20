@@ -8,26 +8,25 @@ class PracticesController < ApplicationController
   end
 
   def create
+    @interview = Interview.find(params[:interview_id])
     @practice = Practice.new(practice_params)
-    @practice.user = current_user
+    @practice.interview = @interview
     if @practice.save
-      redirect_to practice_path(@practice)
+      redirect_to new_interview_practice_path(@interview)
+    else
+      render 'new'
     end
   end
 
-  def show
-    @practice = Practice.find(params[:id])
-  end
+  # def destroy
+  #   @interview = Interview.find(params[:id])
+  #   @question.interview = @interview
+  #   @question.destroy
+  #   redirect_to interview_questions_path(@interview)
 
-  def destroy
-    @practice = Practice.find(params[:id])
-    @practice.destroy
-    redirect_to practices_path
-  end
-
-private
+  private
 
   def practice_params
-    params.require(:practice).permit(:company, :category)
+    params.require(:practice).permit(:question, :type, :title)
   end
 end
