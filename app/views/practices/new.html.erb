@@ -1,15 +1,17 @@
 new.html.erb
+
 <br>
 <div class="text-center">
-  <h3>Lets create a new practice!</h3>
+  <h3>Lets create a new practice interview!</h3>
 </div>
 <div class="form-container">
-  <%= simple_form_for [@user, @practice] do |f| %>
+  <%= simple_form_for [@interview, @practice] do |f| %>
   <div class="flex-container2">
     <div class="form-style-5">
       <legend><span class="number">1</span> Job Info</legend>
-      <%= f.input :company, placeholder: "Amazon"%>
-      <%= f.input :category, placeholder: "Competency"%>
+      <%= f.input :title, placeholder: "give it a name"%>
+      <%= f.input :type, placeholder: "Competency"%>
+      <%= f.input :question, placeholder: "add here" %>
     </div>
 
   </div>
