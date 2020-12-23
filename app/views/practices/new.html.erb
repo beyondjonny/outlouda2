@@ -17,13 +17,13 @@ new.html.erb
           </div>
         </div>
         <div class="form-style-5 w-50 mr-0">
-          <%= simple_form_for [@interview, @practice] do |f| %>
+          <%= simple_form_for [@interview, @question, @practice] do |f| %>
   <div class="flex-container2">
     <div class="form-style-5">
       <legend><span class="number">1</span> Job Info</legend>
       <%= f.input :title, placeholder: "give it a name"%>
-      <%= f.input :type, placeholder: "Competency"%>
-      <%= f.input :question, placeholder: "add here" %>
+      <%= f.association :interview %>
+      <%= f.input :question %>
     </div>
   </div>
 

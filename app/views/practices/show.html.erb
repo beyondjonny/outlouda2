@@ -1,11 +1,17 @@
 
 
 
-<div class="form-style-5 w-50 mb-0 ml-100">
-     <h4></h4>
-    <div class="questions-added">
-      <div class="question-card">
-        <p><%= @practice.question %></p>
+  <div class="form-style-5 w-50 mb-0 ml-100">
+       <h4></h4>
+      <div class="questions-added">
+        <% @interview.questions.sample(1).each do |question| %>
+        <div class="question-card">
+          <p><%= question.question %></p>
+        </div>
+      <% end %>
       </div>
     </div>
-  </div>
+
+
+
+<%= link_to "next", interview_practice_path(@interview, @practice), class: "btn btn-primary btn-lg" %>
