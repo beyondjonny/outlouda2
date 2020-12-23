@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   def index
+    @interview = Interview.find(params[:interview_id])
     @questions = Question.all
   end
 
