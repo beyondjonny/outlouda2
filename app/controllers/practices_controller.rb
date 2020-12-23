@@ -1,5 +1,6 @@
 class PracticesController < ApplicationController
   def index
+    @interview = Interview.find(params[:interview_id])
     @practices = Practice.all
   end
 
@@ -17,6 +18,11 @@ class PracticesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @interview = Interview.find(params[:interview_id])
+    @practice = Practice.find(params[:id])
   end
 
   # def destroy
