@@ -1,6 +1,6 @@
 index.html.erb
 
-
+<h2> Number of practice interviews xxx </h2>
 
 <div class="flex-container3">
   <% @interview.practices.each do |practice| %>
@@ -8,10 +8,9 @@ index.html.erb
     <h6><%= practice.title %></h6>
      <%= link_to interview_practice_path(@interview, practice) do %>
     <div class="card-product-infos">
-      <h2><%= practice.title %></h2>
+      <h2> Link to show </h2>
     </div>
       <% end %>
   </div>
   <% end %>
-</div>
 </div>
