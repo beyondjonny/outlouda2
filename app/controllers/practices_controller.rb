@@ -4,6 +4,7 @@ class PracticesController < ApplicationController
   end
 
   def new
+    @interview = Interview.find(params[:interview_id])
     @practice = Practice.new
   end
 
