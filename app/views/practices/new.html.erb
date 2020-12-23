@@ -1,11 +1,23 @@
 new.html.erb
-
-<br>
 <div class="text-center">
   <h3>Lets create a new practice interview!</h3>
 </div>
-<div class="form-container">
-  <%= simple_form_for [@interview, @practice] do |f| %>
+<br>
+<div class="d-flex">
+    <div class="flex-containernew d-flex flex-column w-100">
+      <div class="d-flex justify-content-between">
+      <div class="form-style-5 w-50 mb-0 ml-100">
+           <h4></h4>
+          <div class="questions-added">
+            <% @interview.questions.order("created_at DESC").each do |question| %>
+            <div class="question-card">
+              <p><%= question.question %></p>
+            </div>
+          <% end %>
+          </div>
+        </div>
+        <div class="form-style-5 w-50 mr-0">
+          <%= simple_form_for [@interview, @practice] do |f| %>
   <div class="flex-container2">
     <div class="form-style-5">
       <legend><span class="number">1</span> Job Info</legend>
@@ -13,8 +25,8 @@ new.html.erb
       <%= f.input :type, placeholder: "Competency"%>
       <%= f.input :question, placeholder: "add here" %>
     </div>
-
   </div>
+
   <div class="row d-flex justify-content-center mb-5">
     <div class="col-md-7">
       <%= f.submit class: "btn btn-primary"%>
@@ -22,3 +34,8 @@ new.html.erb
   </div>
   <% end %>
 </div>
+</div>
+</div>
+</div>
+
+
