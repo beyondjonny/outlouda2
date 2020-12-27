@@ -6,25 +6,13 @@ new.html.erb
 <div class="d-flex">
     <div class="flex-containernew d-flex flex-column w-100">
       <div class="d-flex justify-content-between">
-      <div class="form-style-5 w-50 mb-0 ml-100">
-           <h4></h4>
-          <div class="questions-added">
-            <% @interview.questions.order("created_at DESC").each do |question| %>
-            <div class="question-card">
-              <p><%= question.question %></p>
-            </div>
-          <% end %>
-          </div>
-        </div>
         <div class="form-style-5 w-50 mr-0">
-          <%= simple_form_for [@interview, @question, @practice] do |f| %>
+          <%= simple_form_for [@interview, @practice] do |f| %>
   <div class="flex-container2">
     <div class="form-style-5">
       <legend><span class="number">1</span> Job Info</legend>
       <%= f.input :title, placeholder: "give it a name"%>
-      <%= f.association :interview %>
-      <%= f.input :question %>
-    </div>
+      <%= f.association :questions, as: :check_boxes %>
   </div>
 
   <div class="row d-flex justify-content-center mb-5">
@@ -37,5 +25,3 @@ new.html.erb
 </div>
 </div>
 </div>
-
-

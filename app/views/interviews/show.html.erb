@@ -2,7 +2,6 @@
 <div class="text-center">
 
   <h3><%= @interview.company %></h3>
-    <h4> Questions:  <%= @interview.questions.count %></h4>
     <h4>Practices:  <%= @interview.practices.count %></h4>
 </div>
 <div class="d-flex justify-content-between pt-2 pb-2">
@@ -19,27 +18,12 @@
       <div class="form-style-5 w-50 mb-0 ml-100">
            <h4></h4>
           <div class="questions-added">
-            <% @interview.questions.order("created_at DESC").each do |question| %>
+            <% @interview.practices.order("created_at DESC").each do |question| %>
             <div class="question-card">
-              <p><%= question.question %></p>
             </div>
           <% end %>
           </div>
         </div>
-        <div class="form-style-5 w-50 mr-0">
-        <%= simple_form_for [@interview, @question] do |f| %>
-
-
-        <div class="form-inputs2">
-          <strong>Add question</strong>
-
-          <%= f.input :question, placeholder: "Type your question here and click create when you are done", label: false%>
-        </div>
-        <div class="form-actions">
-        <%= f.submit class: "btn btn-primary-create mt-3"%>
-        </div>
-        <% end %>
-      </div>
       </div>
     </div>
   </div>

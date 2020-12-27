@@ -8,12 +8,13 @@ Rails.application.routes.draw do
   post 'sendsms', to: 'videos#send_sms'
 
   resources :interviews, only: [:index, :new, :create, :show, :destroy] do
-    resources :questions, only: [:index, :new, :create, :show]
-    resources :practices, only: [:index, :new, :create, :show, :destroy]
+    resources :practices, only: [:index, :new, :create, :show, :destroy] do
+      resources :questions, only: [:index, :new, :create, :show]
     resources :videos, only: [:index, :new, :create, :show] do
       resources :reviews, only: [:new, :create]
     end
   end
+end
   resources :candidates, only: [:create, :new, :show]
   resources :searches
 

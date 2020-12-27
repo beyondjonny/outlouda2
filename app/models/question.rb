@@ -1,3 +1,3 @@
 class Question < ApplicationRecord
-  belongs_to :interview
+  belongs_to :practice
 end

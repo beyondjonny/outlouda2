@@ -1,17 +1,21 @@
 class QuestionsController < ApplicationController
   def index
     @interview = Interview.find(params[:interview_id])
+    @practice = Practice.find(params[:practice_id])
     @questions = Question.all
   end
 
   def new
+    @interview = Interview.find(params[:interview_id])
+    @practice = Practice.find(params[:practice_id])
     @question = Question.new
   end
 
   def create
     @interview = Interview.find(params[:interview_id])
+    @practice = Practice.find(params[:practice_id])
     @question = Question.new(question_params)
-    @question.interview = @interview
+    @question.practice = @practice
     if @question.save
       redirect_to interview_path(@interview)
     else
@@ -28,6 +32,6 @@ class QuestionsController < ApplicationController
 private
 
   def question_params
-    params.require(:question).permit(:question)
+    params.require(:question).permit(:text)
   end
 end
