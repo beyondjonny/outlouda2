@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_20_132953) do
+ActiveRecord::Schema.define(version: 2020_12_27_152458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,8 +60,6 @@ ActiveRecord::Schema.define(version: 2020_12_20_132953) do
 
   create_table "practices", force: :cascade do |t|
     t.string "title"
-    t.string "type"
-    t.text "question"
     t.bigint "interview_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -69,11 +67,11 @@ ActiveRecord::Schema.define(version: 2020_12_20_132953) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.bigint "interview_id", null: false
+    t.text "text"
+    t.bigint "practice_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "question"
-    t.index ["interview_id"], name: "index_questions_on_interview_id"
+    t.index ["practice_id"], name: "index_questions_on_practice_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -121,7 +119,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_132953) do
   add_foreign_key "candidates", "videos"
   add_foreign_key "interviews", "users"
   add_foreign_key "practices", "interviews"
-  add_foreign_key "questions", "interviews"
+  add_foreign_key "questions", "practices"
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "videos"
   add_foreign_key "videos", "interviews"

@@ -1,7 +1,7 @@
 class Interview < ApplicationRecord
   belongs_to :user
   has_many :videos, dependent: :destroy
-  has_many :questions, dependent: :destroy
+  has_many :questions, through: :practices
   has_many :practices, dependent: :destroy
   validates :company, :industry, presence: true
   has_one_attached :photo

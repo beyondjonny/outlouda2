@@ -1,12 +1,13 @@
 
 
 
+
   <div class="form-style-5 w-50 mb-0 ml-100">
        <h4></h4>
       <div class="questions-added">
-        <% @interview.questions.sample(1).each do |question| %>
+        <% @practice.questions.sample(1).each do |question| %>
         <div class="question-card">
-          <p><%= question.question %></p>
+          <p><%= question.text %></p>
         </div>
       <% end %>
       </div>

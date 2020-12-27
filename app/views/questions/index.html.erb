@@ -1,8 +1,9 @@
+
 index.html.erb
 <div class="questions-added">
-  <% @questions.each do |question| %>
+  <% @practice.questions.each do |question| %>
   <div>
-    <%= question.question %>
+    <%= question.text %>
   </div>
   <% end %>
 </div>
