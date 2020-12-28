@@ -14,3 +14,10 @@ new.html.erb
         <%= question.text %>
       </li>
     <% end %>
+  </div>
+
+  <div class="d-flex justify-content-between pt-2 pb-2">
+  <span>
+    <%= link_to "Practices", interview_practices_path(@interview), class: "btn btn-primary btn-lg" %>
+  </span>
+</div>

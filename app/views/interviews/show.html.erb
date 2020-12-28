@@ -6,27 +6,14 @@
 </div>
 <div class="d-flex justify-content-between pt-2 pb-2">
   <span>
-    <%= link_to "Practice Questions", interview_practices_path(@interview), class: "btn btn-primary btn-lg" %>
+    <%= link_to "Practices", interview_practices_path(@interview), class: "btn btn-primary btn-lg" %>
   </span>
     <span>
     <%= link_to "Create a practice", new_interview_practice_path(@interview), class: "btn btn-primary btn-lg" %>
   </span>
 </div>
-  <div class="d-flex">
-    <div class="flex-containernew d-flex flex-column w-100">
-      <div class="d-flex justify-content-between">
-      <div class="form-style-5 w-50 mb-0 ml-100">
-           <h4></h4>
-          <div class="questions-added">
-            <% @interview.practices.order("created_at DESC").each do |question| %>
-            <div class="question-card">
-            </div>
-          <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+
 
 
 

@@ -17,9 +17,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.practice = @practice
     if @question.save
-      redirect_to interview_path(@interview)
-    else
-      render 'new'
+      redirect_to new_interview_practice_question_path(@interview, @practice)
     end
   end
 

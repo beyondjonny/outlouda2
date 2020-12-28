@@ -1,42 +1,22 @@
 <div class="form-style-5">
   <legend><span class="number">2</span> Add question</legend>
-    <%= simple_form_for [@interview, @question] do |f| %>
+    <%= simple_form_for [@interview, @practice, @question] do |f| %>
     <div class="form-inputs">
-      <%= f.input :question %>
+      <%= f.input :text, placeholder: "give it a name"%>
     </div>
     <div class="form-actions">
     <%= f.submit class: "btn btn-primary"%>
     </div>
     <% end %>
-    <% @interview.questions.each do |question| %>
+    <% @practice.questions.each do |question| %>
       <li>
-        <%= question.question %>
+        <%= question.text %>
       </li>
     <% end %>
+  </div>
+  <div class="d-flex justify-content-between pt-2 pb-2">
+  <span>
+    <%= link_to "Practices", interview_practices_path(@interview), class: "btn btn-primary btn-lg" %>
+  </span>
+</div>
 
-<%= form_tag sendsms_path, method: :post do %>
-  <%= text_field_tag :number,
-    params[:number],
-    class: "form-control",
-    placeholder: "Write candidate number"
-  %>
-<%= text_field_tag :link,
-    "Please submit your application here: " +  new_interview_video_url(@interview),
-    class: "form-control",
-    placeholder: "Add link"
-  %>
-<%= text_field_tag :company,
-    params[:company],
-    class: "form-control",
-    value: @interview.company
-  %>
-<%= text_field_tag :deadline,
-    params[:deadline],
-    class: "form-control",
-    value: @interview.final_date
-  %>
-<%= hidden_field_tag :interview,
-    @interview.id
-  %>
-  <%= submit_tag "Invite", class: "btn btn-primary" %>
-<% end %>
