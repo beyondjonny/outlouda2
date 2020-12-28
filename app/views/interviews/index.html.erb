@@ -12,10 +12,11 @@
       <% else %>
         <h6><%= interview.company %></h6>
       <% end %>
-     <%= link_to interview_path(interview) do %>
+     <%= link_to interview_practices_path(interview) do %>
     <div class="card-product-infos">
       <h2><%= interview.name %></h2>
-      <p><%= interview.company %> : <strong><%= interview.days_remaining %> days</strong> left.</p>
+      <p><%= interview.company %> </p>
+      <p> <strong><%= interview.practices.count %> practices</strong></p>
     </div>
     <% end %>
   </div>
