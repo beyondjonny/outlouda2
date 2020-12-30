@@ -1,14 +1,94 @@
 
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Question of the day </title>
+  </head>
 
 
   <div class="form-style-5 w-50 mb-0 ml-100">
        <h4></h4>
       <div class="questions-added">
         <% @practice.questions.sample(1).each do |question| %>
-        <div class="question-card">
+
           <p><%= question.text %></p>
-        </div>
+        <div>
+
+          <body>
+              <%question = question.text %>
+            <main>
+              <form class="input" id="voice-form">
+                <div class="field">
+                  <label for="speech"></label>
+                  <input type="text" value="<%=question %>" name="speech" id="speech" required />
+                </div>
+                <div class="field">
+                  <label for="voices">Choose a voice</label>
+                  <select name="voices" id="voices">
+                    <option value=""></option>
+                  </select>
+                </div>
+                <button>Say it!</button>
+              </form>
+            </main>
+            <footer>
+
+            </footer>
+            <script>
+              window.addEventListener('DOMContentLoaded', () => {
+              const form = document.getElementById('voice-form');
+              const input = document.getElementById('speech');
+              const voiceSelect = document.getElementById('voices');
+              let voices;
+              let currentVoice;
+
+              const populateVoices = () => {
+              const availableVoices = speechSynthesis.getVoices();
+              voiceSelect.innerHTML = '';
+
+              availableVoices.forEach(voice => {
+                const option = document.createElement('option');
+                let optionText = `${voice.name} (${voice.lang})`;
+                if (voice.default) {
+                  optionText += ' [default]';
+                  if (typeof currentVoice === 'undefined') {
+                    currentVoice = voice;
+                    option.selected = true;
+                  }
+                }
+                if (currentVoice === voice) {
+                  option.selected = true;
+                }
+                option.textContent = optionText;
+                voiceSelect.appendChild(option);
+              });
+              voices = availableVoices;
+              };
+
+             populateVoices();
+             speechSynthesis.onvoiceschanged = populateVoices;
+
+             voiceSelect.addEventListener('change', event => {
+                const selectedIndex = event.target.selectedIndex;
+                currentVoice = voices[selectedIndex];
+              });
+
+             form.addEventListener('submit', event => {
+              event.preventDefault();
+              const toSay = input.value.trim();
+              const utterance = new SpeechSynthesisUtterance(toSay);
+              utterance.voice = currentVoice;
+              speechSynthesis.speak(utterance);
+              input.value = '';
+            });
+          });
+        </script>
+          </body>
+        </html>
+        <</div>
       <% end %>
       </div>
     </div>
@@ -16,3 +96,4 @@
 
 
 <%= link_to "next", interview_practice_path(@interview, @practice), class: "btn btn-primary btn-lg" %>
+
