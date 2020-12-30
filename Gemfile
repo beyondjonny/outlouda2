@@ -81,3 +81,6 @@ gem 'twilio-ruby', '~> 5.43.0'
 
 #Ziggeo Video
 gem 'Ziggeo'
+
+
+gem 'google-cloud-text_to_speech'
