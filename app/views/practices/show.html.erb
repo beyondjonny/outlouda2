@@ -1,4 +1,5 @@
 
+<div class="practice"></div>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,12 +10,14 @@
   </head>
 
 
-  <div class="form-style-5 w-50 mb-0 ml-100">
-       <h4></h4>
-      <div class="questions-added">
+  <div class="form-style-5">
+       <h4>Lets practice!</h4>
+       <br>
+      <div class="practice">
         <% @practice.questions.sample(1).each do |question| %>
-
+        <div class="practice-card">
           <p><%= question.text %></p>
+        </div>
         <div>
 
           <body>
@@ -23,13 +26,11 @@
               <form class="input" id="voice-form">
                 <div class="field">
                   <label for="speech"></label>
-                  <input type="text" value="<%=question %>" name="speech" id="speech" required />
+                  <input type="hidden" value="<%=question %>" name="speech" id="speech" required />
                 </div>
                 <div class="field">
-                  <label for="voices">Choose a voice</label>
-                  <select name="voices" id="voices">
+                  <input type="hidden"name="voices" id="voices">
                     <option value=""></option>
-                  </select>
                 </div>
                 <button>Say it!</button>
               </form>
@@ -45,9 +46,9 @@
               let voices;
               let currentVoice;
 
+
               const populateVoices = () => {
               const availableVoices = speechSynthesis.getVoices();
-              voiceSelect.innerHTML = '';
 
               availableVoices.forEach(voice => {
                 const option = document.createElement('option');
@@ -66,7 +67,8 @@
                 voiceSelect.appendChild(option);
               });
               voices = availableVoices;
-              };
+              };          voiceSelect.innerHTML = '';
+
 
              populateVoices();
              speechSynthesis.onvoiceschanged = populateVoices;
@@ -80,7 +82,7 @@
               event.preventDefault();
               const toSay = input.value.trim();
               const utterance = new SpeechSynthesisUtterance(toSay);
-              utterance.voice = currentVoice;
+              utterance.voice = voices[50]
               speechSynthesis.speak(utterance);
               input.value = '';
             });
@@ -92,6 +94,7 @@
       <% end %>
       </div>
     </div>
+
 
 
 
