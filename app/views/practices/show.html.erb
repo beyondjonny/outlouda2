@@ -8,16 +8,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Question of the day </title>
   </head>
+  <br>
+    <h4>Lets practice!</h4>
+  <br>
 
-
-  <div class="form-style-5">
-       <h4>Lets practice!</h4>
-       <br>
-      <div class="practice">
+  <div class="flex-container4">
+      <div class="flex-item">
         <% @practice.questions.sample(1).each do |question| %>
         <div class="practice-card">
           <p><%= question.text %></p>
-        </div>
+
         <div>
 
           <body>
@@ -33,7 +33,9 @@
                     <option value=""></option>
                 </div>
                 <button>Say it!</button>
-              </form>
+               </div>
+             </div>
+             </form>
             </main>
             <footer>
 
@@ -85,18 +87,29 @@
               utterance.voice = voices[50]
               speechSynthesis.speak(utterance);
               input.value = '';
+              });
             });
+          </script>
+        </body>
+        </html>
+        </div>
+      <% end %>
+      <div class ="flex-item">
+      <video autoplay></video>
+        <script>
+          const constraints = {
+          video: true,
+          };
+          const video = document.querySelector("video");
+          navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+          video.srcObject = stream;
           });
         </script>
-          </body>
-        </html>
-        <</div>
-      <% end %>
       </div>
+
     </div>
 
 
-
-
-<%= link_to "next", interview_practice_path(@interview, @practice), class: "btn btn-primary btn-lg" %>
-
+<div class="flex-container5">
+  <%= link_to "next", interview_practice_path(@interview, @practice), class: "btn btn-primary btn-lg " %>
+</div>

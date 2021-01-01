@@ -45,6 +45,15 @@ margin-bottom: 30px;
 
 .practice {
  display: flex;
-   flex-direction: column;
+justify-content: space-between;
+}
 
+.flex-container4 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-container5 {
+  display: flex;
+  justify-content: flex-end; // or `flex-start`
 }
