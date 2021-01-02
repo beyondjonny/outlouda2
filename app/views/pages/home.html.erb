@@ -21,7 +21,7 @@
               <form class="input" id="voice-form">
                 <div class="field">
                   <label for="speech"></label>
-                  <input type="hidden" value="xxx" name="speech" id="speech" required />
+                  <input type="hidden" value="tell me about a time when you had to use data to make a business decision. What was the situation and what was the outcome?" name="speech" id="speech" required />
                 </div>
                 <div class="field">
                   <input type="hidden"name="voices" id="voices">
@@ -81,7 +81,7 @@
               const utterance = new SpeechSynthesisUtterance(toSay);
               utterance.voice = voices[50]
               speechSynthesis.speak(utterance);
-              input.value = 'gggg';
+              input.value = 'tell me about a time when you had to use data to make a business decision. What was the situation and what was the outcome?';
               });
             });
           </script>
