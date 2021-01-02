@@ -12,6 +12,16 @@
     <h4>Lets practice!</h4>
   <br>
 
+
+
+<div>
+  <%= @practice.questions.each do |question| %>
+  <p><%=question.text %></p>
+  <% end %>
+</div>
+
+
+
   <div class="flex-container4">
       <div class="flex-item">
         <% @practice.questions.sample(1).each do |question| %>
@@ -26,10 +36,10 @@
               <form class="input" id="voice-form">
                 <div class="field">
                   <label for="speech"></label>
-                  <input type="hidden" value="<%=question %>" name="speech" id="speech" required />
+                  <input type="text" value="<%=question %>" name="speech" id="speech" required />
                 </div>
                 <div class="field">
-                  <input type="hidden"name="voices" id="voices">
+                  <input type="text"name="voices" id="voices">
                     <option value=""></option>
                 </div>
                 <button>Say it!</button>
