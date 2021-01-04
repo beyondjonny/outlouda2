@@ -1,9 +1,12 @@
 
-index.html.erb
-<div class="questions-added">
+
+<div class="flex-container3">
   <% @practice.questions.each do |question| %>
-  <div>
-    <%= question.text %>
+  <div class="card-product2">
+    <h6><%= question.text %></h6>
+    <h6>-<%= question.id %></h6>
+     <%= link_to interview_practice_question_path(@interview, @practice, question) do %>
+    <% end %>
   </div>
   <% end %>
 </div>

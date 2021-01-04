@@ -16,7 +16,7 @@
 
 <div>
   <%= @practice.questions.each do |question| %>
-  <p><%=question.text %></p>
+  <p><%=question.text %> -   <%= question.id %>  </p>
   <% end %>
 </div>
 

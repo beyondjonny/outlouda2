@@ -21,6 +21,12 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def show
+    @interview = Interview.find(params[:interview_id])
+    @practice = Practice.find(params[:practice_id])
+    @question = Question.find(params[:id])
+
+  end
   # def destroy
   #   @interview = Interview.find(params[:id])
   #   @question.interview = @interview
