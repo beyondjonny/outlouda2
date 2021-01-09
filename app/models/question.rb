@@ -1,10 +1,11 @@
 class Question < ApplicationRecord
   belongs_to :practice
+
   def next
-    Question.where("id > ?", id).order(id: :asc).limit(1).first
+    Question.where("id > ?", id).order("id ASC").first || Question.first
   end
 
-  def prev
-    Question.where("id < ?", id).order(id: :desc).limit(1).first
+  def previous
+    Question.where("id < ?", id).order("id DESC").first || Question.last
   end
 end
