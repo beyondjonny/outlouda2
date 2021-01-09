@@ -16,9 +16,11 @@
 
 <div>
   <%= @practice.questions.order(created_at: :desc).last(1)  %>
-  <% id = @practice.questions.first.id.to_i %>
 </div>
 
+<div>
+  render "questions/show"
+</div>
 
 
 <div class="flex-container5">

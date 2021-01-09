@@ -1,0 +1,13 @@
+show.html.erb
+
+<li>
+<%= @question.text %>
+</li>
+
+<%= link_to "Previous", interview_practice_question_path(@interview, @practice, @question.previous), class: "btn btn-primary btn-lg"%>
+<%= link_to "next", interview_practice_question_path(@interview, @practice, @question.next), class: "btn btn-primary btn-lg" %>
+
+
+
+
+
