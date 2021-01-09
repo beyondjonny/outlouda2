@@ -1,12 +1,19 @@
-
+  <br>
+    <h4>Lets practice!</h4>
+  <br>
+  <p>This pratice session has <%= @practice.questions.count %> questions. Click each question card to practice </p>
 
 <div class="flex-container3">
   <% @practice.questions.each do |question| %>
   <div class="card-product2">
-    <h6><%= question.text %></h6>
-    <h6>-<%= question.id %></h6>
-     <%= link_to interview_practice_question_path(@interview, @practice, question) do %>
+    <%= link_to interview_practice_question_path(@interview, @practice, question) do %>
+    <h6>Click me</h6>
     <% end %>
   </div>
   <% end %>
 </div>
+
+
+<% @practice.questions.order(created_at: :desc).last(1)  %>
+
+
