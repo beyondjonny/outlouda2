@@ -4,6 +4,23 @@
 <div class="practice"></div>
 <!DOCTYPE html>
 <html lang="en">
+    <style>
+      button {
+        display: inline-block;
+        background-color: #167FFB;
+        border-radius: 10px;
+        color: #eeeeee;
+        text-align: center;
+        font-size: 28px;
+        padding: 5px;
+        width: 500px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        cursor: pointer;
+      }
+    </style>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,29 +33,35 @@
 
 
   <div class="flex-container4">
-      <div class="flex-item">
+    <div class ="flex-item">
+    <video autoplay></video>
+      <script>
+        const constraints = {
+        video: true,
+        };
+        const video = document.querySelector("video");
+        navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+        video.srcObject = stream;
+        });
+      </script>
 
-        <% @question.text %>
-        <div class="practice-card">
-          <p><%= @question.text %></p>
-
-        <div>
-
-          <body>
-              <%question = @question.text %>
-            <main>
-              <form class="input" id="voice-form">
-                <div class="field">
-                  <label for="speech"></label>
-                  <input type="text" value="<%=question %>" name="speech" id="speech" required />
-                </div>
-                <div class="field">
-                  <input type="text"name="voices" id="voices">
-                    <option value=""></option>
-                </div>
-                <button>Say it!</button>
-               </div>
-             </div>
+      <% @question.text %>
+        <p><% @question.text %></p>
+      <div>
+        <body>
+            <%question = @question.text %>
+          <main>
+            <form class="input" id="voice-form">
+              <div class="field">
+                <button> Ask Me! </button>
+                <label for="speech"></label>
+                <input type="hidden" value="<%=question %>" name="speech" id="speech" required />
+              </div>
+              <div class="field">
+                <input type="hidden"name="voices" id="voices">
+                  <option value=""></option>
+              </div>
+           </div>
              </form>
             </main>
             <footer>
@@ -98,29 +121,16 @@
         </html>
         </div>
 
-      <div class ="flex-item">
-      <video autoplay></video>
-        <script>
-          const constraints = {
-          video: true,
-          };
-          const video = document.querySelector("video");
-          navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
-          video.srcObject = stream;
-          });
-        </script>
-      </div>
-
     </div>
 
+<span>
+  <%= link_to "Quit Practice", interview_practices_path(@interview, @practice), class: "btn btn-primary btn-lg " %>
+</span>
 
-<div class="flex-container5">
-  <%= link_to "index", interview_practice_questions_path(@interview, @practice), class: "btn btn-primary btn-lg " %>
-</div>
+<span>
+  <%= link_to "Questions", interview_practice_questions_path(@interview, @practice), class: "btn btn-primary btn-lg " %>
+</span>
 
-<div class="flex-container5">
-  <%= link_to "exit", interview_practices_path(@interview, @practice), class: "btn btn-primary btn-lg " %>
-</div>
 
 
 <!-- link_to "Previous", interview_practice_question_path(@interview, @practice, @question.previous), class: "btn btn-primary btn-lg"
