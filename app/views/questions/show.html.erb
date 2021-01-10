@@ -31,42 +31,63 @@
     <h4>Lets practice!</h4>
   <br>
 
+  <script>
+  function myFunction() {
+    var x = document.getElementById("mirror");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  </script>
 
   <div class="flex-container4">
     <div class ="flex-item">
-    <video autoplay></video>
-      <script>
-        const constraints = {
-        video: true,
-        };
-        const video = document.querySelector("video");
-        navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
-        video.srcObject = stream;
-        });
-      </script>
+      <button onclick="myFunction()">Mirror on/off</button>
+      <div id="mirror">
+        <video autoplay></video>
+          <script>
+            const constraints = {
+            video: true,
+            };
+            const video = document.querySelector("video");
+            navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+            video.srcObject = stream;
+            });
+          </script>
+      </div>
+        <% @question.text %>
+          <p><% @question.text %></p>
+        <div>
+          <body>
+              <%question = @question.text %>
+            <main>
+              <form class="input" id="voice-form">
+                <div class="field">
+                  <button> Listen</button>
+                  <label for="speech"></label>
+                  <input type="hidden" value="<%=question %>" name="speech" id="speech" required />
+                </div>
+                <div class="field">
+                  <input type="hidden"name="voices" id="voices">
+                    <option value=""></option>
+                </div>
+               </form>
+              </main>
+              <footer>
 
-      <% @question.text %>
-        <p><% @question.text %></p>
-      <div>
-        <body>
-            <%question = @question.text %>
-          <main>
-            <form class="input" id="voice-form">
-              <div class="field">
-                <button> Ask Me! </button>
-                <label for="speech"></label>
-                <input type="hidden" value="<%=question %>" name="speech" id="speech" required />
-              </div>
-              <div class="field">
-                <input type="hidden"name="voices" id="voices">
-                  <option value=""></option>
-              </div>
-           </div>
-             </form>
-            </main>
-            <footer>
+              </footer>
 
-            </footer>
+              <button onclick="showDiv()">Read</button>
+
+            <script>
+              function showDiv() {
+              document.getElementById('question').style.display = "block";
+            }
+            </script>
+
+
             <script>
               window.addEventListener('DOMContentLoaded', () => {
               const form = document.getElementById('voice-form');
@@ -120,7 +141,28 @@
         </body>
         </html>
         </div>
+      </div>
+      <br>
 
+        <script>
+          function showDiv() {
+            var x = document.getElementById("question");
+            if (x.style.display === "none") {
+              x.style.display = "block";
+            } else {
+              x.style.display = "none";
+            }
+          }
+          </script>
+
+
+      <div class="flex-item">
+        <div id= "question" style="display:none">
+          <div class="question-card">
+            <p><%= @question.text %></p>
+          </div>
+        </div>
+      </div>
     </div>
 
 <span>
