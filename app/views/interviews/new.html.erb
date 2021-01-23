@@ -1,4 +1,5 @@
 <br>
+<div class=flex-container4>
 <div class="text-center">
   <h3>Lets create a new company!</h3>
 </div>
@@ -6,17 +7,14 @@
   <%= simple_form_for [@user, @interview] do |f| %>
   <div class="flex-container2">
     <div class="form-style-5">
-      <legend><span class="number">1</span> Job Info</legend>
-      <%= f.input :company, placeholder: "Amazon"%>
+      <%= f.input :company, placeholder: "Name e.g. Amazon"%>
       <%= f.input :industry, placeholder: "Tech"%>
       <%= f.input :photo, as: :file %>
     </div>
-
   </div>
-  <div class="row d-flex justify-content-center mb-5">
-    <div class="col-md-7">
-      <%= f.submit class: "btn btn-primary"%>
+  <div>
+    <%= f.submit class: "btn btn-primary", value: "Create Company" %>
     </div>
-  </div>
   <% end %>
+  </div>
 </div>

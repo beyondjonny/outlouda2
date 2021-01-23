@@ -1,27 +1,23 @@
-new.html.erb
+<br>
+<div class=flex-container4>
 <div class="text-center">
   <h3>Lets create a new practice interview!</h3>
 </div>
-<br>
-<div class="d-flex">
-    <div class="flex-containernew d-flex flex-column w-100">
-      <div class="d-flex justify-content-between">
-        <div class="form-style-5 w-50 mr-0">
-          <%= simple_form_for [@interview, @practice] do |f| %>
+<div class="form-container">
+  <%= simple_form_for [@interview, @practice] do |f| %>
   <div class="flex-container2">
     <div class="form-style-5">
-      <legend><span class="number">1</span> Job Info</legend>
-      <%= f.input :title, placeholder: "give it a name"%>
-  </div>
-  <div class="row d-flex justify-content-center mb-5">
-    <div class="col-md-7">
-      <%= f.submit class: "btn btn-primary"%>
+   <%= f.input :title, placeholder: "Name the interview.."%>
     </div>
   </div>
+  <div>
+    <%= f.submit class: "btn btn-primary", value: "Create Practice" %>
+    </div>
   <% end %>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+
+
+
+
 
