@@ -26,10 +26,10 @@ gem 'redis', '~> 4.0'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
-gem 'bootstrap-datepicker-rails'
+# gem 'bootsnap', '>= 1.4.2', require: false
+# gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-sass'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+# gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'jquery-rails'
 gem 'momentjs-rails', '>= 2.9'
 
@@ -67,19 +67,19 @@ group :test do
   gem 'webdrivers'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# search bar
-gem 'pg_search', '~> 2.3.0'
+# # search bar
+# gem 'pg_search', '~> 2.3.0'
 
 #cloudinary
 gem 'cloudinary', '~> 1.16.0'
 
-#SMS
-gem 'twilio-ruby', '~> 5.43.0'
+# #SMS
+# gem 'twilio-ruby', '~> 5.43.0'
 
-#Ziggeo Video
-gem 'Ziggeo'
+# #Ziggeo Video
+# gem 'Ziggeo'
 
 
