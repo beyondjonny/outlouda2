@@ -9,11 +9,4 @@ class Interview < ApplicationRecord
   def days_remaining
     -(Date.today - self.final_date.to_date).to_i if self.final_date
   end
-
-  include PgSearch::Model
-  pg_search_scope :search_by_name_and_date,
-    against: [:name, :open_date, :final_date, :company],
-    using: {
-      tsearch: { prefix: true }
-    }
 end
